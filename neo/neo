@@ -1,0 +1,34 @@
+#include <SoftwareSerial.h>
+#include "./TinyGPS.h"
+
+static const int RXPin = 6;
+
+// GPS
+TinyGPS gps;
+
+SoftwareSerial ss(RXPin, 255);
+
+void setup(){
+  Serial.begin(9600);
+  ss.begin(9600);
+}
+
+void loop(){
+  // This sketch displays information every time a new sentence is correctly encoded.
+  unsigned long start = millis();
+  while (millis() - start < 1000){
+    while (ss.available()){
+      if (gps.encode(ss.read())){
+        float flat, flon;
+        unsigned long age;
+        
+        gps.f_get_position(&flat, &flon, &age);
+        
+        Serial.print("Latitude= "); 
+        Serial.print(flat, 6);
+        Serial.print(" Longitude= "); 
+        Serial.println(flon, 6);
+      }
+    }
+  }
+}
