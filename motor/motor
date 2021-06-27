@@ -1,0 +1,75 @@
+//New Line Follower
+
+//Motor direction
+int mot1 = 7;
+int mot2 = 8;
+int mot3 = 12;
+int mot4 = 4;
+
+//PWM
+int L = 5;
+int R = 9;
+
+void LEFT (void);
+void RIGHT (void);
+void Forward (void);
+
+void setup()
+{
+  Serial.begin(9600);
+  
+  pinMode(mot1, OUTPUT);
+  pinMode(mot2, OUTPUT);
+  pinMode(mot3, OUTPUT);
+  pinMode(mot4, OUTPUT);
+
+  pinMode(L, OUTPUT);
+  pinMode(R, OUTPUT);
+}
+
+void loop()
+{
+  analogWrite(L, 200);
+  analogWrite(R, 200);
+  //left
+  digitalWrite(mot1, HIGH);
+  digitalWrite(mot2, LOW);
+  //right
+  digitalWrite(mot3, HIGH);
+  digitalWrite(mot4, LOW);
+}
+
+void RIGHT (void)
+{
+  digitalWrite(mot3, LOW);
+  digitalWrite(mot4, LOW);
+
+  while (Right == 0)
+  {
+    Left = digitalRead(left);
+    Right = digitalRead(right);
+    digitalWrite(mot1, LOW);
+    digitalWrite(mot2, HIGH);
+  }
+}
+
+void LEFT (void)
+{
+  digitalWrite(mot1, LOW);
+  digitalWrite(mot2, LOW);
+
+  while (Left == 0)
+  {
+    Left = digitalRead(left);
+    Right = digitalRead(right);
+    digitalWrite(mot3, LOW);
+    digitalWrite(mot4, HIGH);
+  }
+}
+void Forward (void)
+{
+  digitalWrite(mot1, LOW);
+  digitalWrite(mot2, HIGH);
+  digitalWrite(mot3, LOW);
+  digitalWrite(mot4, HIGH);
+}
