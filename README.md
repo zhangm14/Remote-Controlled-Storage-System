@@ -1,9 +1,10 @@
 # Remote-Controlled-Storage-System
 
-Project Member: Malachy Newman, Clayton Thompson, Cesar Perez,
-                Elizabeth Guzman, Brian Wang, Minghua Zhang
-        Coder:  Minghua Zhangg, Cesar Perez
-         Date:  08/16/2019
+Project Member: Malachy Newman, Clayton Thompson, Cesar Perez, Elizabeth Guzman, Brian Wang, Minghua Zhang
+
+Coder:  Minghua Zhangg, Cesar Perez
+
+Date:  08/16/2019
 
 
 Problem Statement: 
