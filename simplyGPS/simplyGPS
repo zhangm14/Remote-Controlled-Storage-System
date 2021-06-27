@@ -1,0 +1,26 @@
+#include <SoftwareSerial.h>
+
+#define RXPIN 11
+#define TXPIN 12
+SoftwareSerial nss(RXPIN, TXPIN); //GPS Module’s TX to RX & RX to TX
+
+void setup(){
+
+  Serial.begin(9600);
+
+  nss.begin(9600);
+
+}
+
+
+void loop(){
+
+  while (nss.available() > 0){
+
+    byte gpsData = nss.read();
+
+    Serial.write(gpsData);
+
+  }
+
+}
